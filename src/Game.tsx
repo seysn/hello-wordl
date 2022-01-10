@@ -17,8 +17,7 @@ interface GameProps {
   hidden: boolean;
 }
 
-const targets = targetList
-  .slice(0, targetList.indexOf("murky") + 1); // Words no rarer than this one
+const targets = targetList;
 
 function randomTarget(wordLength: number) {
   const eligible = targets.filter((word) => word.length === wordLength);
@@ -36,6 +35,7 @@ function Game(props: GameProps) {
     return randomTarget(wordLength);
   });
   const [gameNumber, setGameNumber] = useState(1);
+  console.log(target);
 
   const startNextGame = () => {
     setTarget(randomTarget(wordLength));
